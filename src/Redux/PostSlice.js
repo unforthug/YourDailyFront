@@ -8,7 +8,7 @@ export const post = createAsyncThunk(
     const config = { headers: { authorization: `Bearer ${userAuth}` } };
     try {
       const { newPost } = await axios.post(
-        "http://localhost:5000/news",
+        "https://yourdailybackend.onrender.com/news",
         value,
         config
       );
@@ -29,7 +29,7 @@ export const RePost = createAsyncThunk(
   
     try {
       const { shared } = await axios.post(
-        "http://localhost:5000/news/profile/share",
+        "https://yourdailybackend.onrender.com/news/profile/share",
         config
       );
       return shared;
@@ -43,7 +43,7 @@ export const getAllPosts = createAsyncThunk(
   "getAllPosts",
   async (payload, { rejectWithValue, getState, dispatch }) => {
     try {
-      const { data } = await axios.get("http://localhost:5000/news");
+      const { data } = await axios.get("https://yourdailybackend.onrender.com/news");
       return data;
     } catch (error) {
       return rejectWithValue(error?.response?.message);
@@ -58,7 +58,7 @@ export const getUserPosts = createAsyncThunk(
     const config = { headers: { authorization: `Bearer ${userAuth}` } };
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/news/profile/posts",
+        "https://yourdailybackend.onrender.com/news/profile/posts",
         config
       );
 
