@@ -6,7 +6,7 @@ export const addMovie = createAsyncThunk(
   async ({ newMovie }, { rejectWithValue, getState }) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/movies",
+        "https://yourdailybackend.onrender.com/movies",
         newMovie
       );
       return data;
@@ -20,7 +20,7 @@ export const getAllMovies = createAsyncThunk(
   "getAllMovies",
   async (payload, { rejectWithValue, getState, dispatch }) => {
     try {
-      const { data } = await axios.get("http://localhost:5000/movies");
+      const { data } = await axios.get("https://yourdailybackend.onrender.com/movies");
       console.log("done");
       return data;
     } catch (error) {
