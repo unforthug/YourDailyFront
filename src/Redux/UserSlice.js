@@ -6,7 +6,7 @@ export const register = createAsyncThunk(
   async ({ formValue, toast, navigate }, { rejectWithValue, getState }) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/user/signup",
+        "https://yourdailybackend.onrender.com/user/signup",
         formValue
       );
       toast.success("Registred Successfully");
@@ -23,7 +23,7 @@ export const login = createAsyncThunk(
   async ({ formValue, toast, navigate }, { rejectWithValue, getState }) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/user/signin",
+        "https://yourdailybackend.onrender.com/user/signin",
         formValue
       );
       localStorage.setItem("userInfos", JSON.stringify(data));
@@ -57,7 +57,7 @@ export const updateUser = createAsyncThunk(
     };
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/user/profile/${id}`,
+        `https://yourdailybackend.onrender.com/user/profile/${id}`,
         editUser,
         config
       );
